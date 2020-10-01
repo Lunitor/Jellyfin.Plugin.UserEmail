@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace Jellyfin.Plugin.UserEmail.API
 {
-    public class UserEmailsAPI
+    public class UserEmailsAPI : IService
     {
         private readonly ILogger<UserEmailsAPI> _logger;
         private readonly IUserRepository _userRepository;
