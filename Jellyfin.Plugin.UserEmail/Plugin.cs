@@ -6,13 +6,13 @@ using MediaBrowser.Common.Plugins;
 using MediaBrowser.Model.Plugins;
 using MediaBrowser.Model.Serialization;
 
-namespace Jellyfin.Plugin.Template
+namespace Jellyfin.Plugin.UserEmail
 {
     public class Plugin : BasePlugin<PluginConfiguration>, IHasWebPages
     {
-        public override string Name => "Template";
-
-        public override Guid Id => Guid.Parse("eb5d7894-8eef-4b36-aa6f-5d124e828ce1");
+        public override string Name => "UserEmail";
+        
+        public override Guid Id => Guid.Parse("a1dc3c99-3e1d-4469-b7f0-b3147d9e9675");
 
         public Plugin(IApplicationPaths applicationPaths, IXmlSerializer xmlSerializer) : base(applicationPaths, xmlSerializer)
         {
