@@ -6,7 +6,7 @@ using System.Linq;
 
 namespace Jellyfin.Plugin.UserEmail.Core
 {
-    internal class UserRepository
+    public class UserRepository : IUserRepository
     {
         private const string DatabaseName = @"useremails.db";
         private const string UserCollectionName = "users";

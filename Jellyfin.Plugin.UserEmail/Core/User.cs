@@ -1,6 +1,6 @@
 ﻿namespace Jellyfin.Plugin.UserEmail.Core
 {
-    internal class User
+    public class User
     {
         public string Username { get; set; }
         public string EmailAddress { get; set; }
