@@ -1,6 +1,6 @@
-﻿using Jellyfin.Plugin.UserEmail.Configuration;
-using Jellyfin.Plugin.UserEmail.Entity;
+﻿using Jellyfin.Plugin.UserEmail.Entity;
 using MediaBrowser.Controller.Library;
+using MediaBrowser.Controller.Net;
 using MediaBrowser.Model.Services;
 using Microsoft.Extensions.Logging;
 using System;
@@ -32,7 +32,8 @@ namespace Jellyfin.Plugin.UserEmail.API
         }
     }
 
-    [Route("/Jellyfin.Plugin.UserEmail/GetUserEmails", verbs:"GET")]
+    [Route("/Jellyfin.Plugin.UserEmail/GetUserEmails", verbs:"GET", IsHidden = true)]
+    [Authenticated]
     public class GetUserEmails : IReturn<IEnumerable<User>>
     { 
     }
