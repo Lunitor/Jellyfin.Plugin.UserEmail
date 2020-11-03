@@ -9,14 +9,10 @@
             <div class="content-primary">
                 <form class="userEmailConfigurationForm">
                     <div class="selectContainer">
-                        <label class="selectLabel" for="selectUser">Username</label>
-                        <select is="emby-select" id="selectUser" label=""></select>
+                        <select is="emby-select" id="selectUser" label="Username"></select>
                     </div>
                     <div class="inputContainer">
                         <input is="emby-input" type="text" id="emailAddress" name="emailAddress" label="Email address" />
-                        <div class="fieldDescription">
-                            Email address where messages will be sent.
-                        </div>
                     </div>
                     <br />
                     <div>
@@ -45,6 +41,8 @@
 
                 $('.userEmailConfigurationPage').on('pageinit', function (event) {
                     var page = this;
+
+                    // Setup event handlers
                     $('#selectUser', page).on('change', function () {
                         loadUserConfig(page, this.value);
                     });
@@ -74,13 +72,13 @@
                         return false;
                     });
 
-                }).on('pageshow', function (event) {
-                    Dashboard.showLoadingMsg();
-
+                    // Fill options
                     ApiClient.getUsers().then(function (users) {
                         document.getElementById('selectUser').innerHTML = users.map(function (user) {
                             return '<option value="' + user.Id + '">' + user.Name + '</option>';
                         });
+                    }).then(function () {
+                        loadUserConfig(page, document.getElementById('selectUser').options[0].value);
                     });
 
                     Dashboard.hideLoadingMsg();
